@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple E-Commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">ShopNow</div>
+        <div class="cart">
+            <button onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</button>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <section class="products">
+        <h2>Products</h2>
+        <div class="product-list">
+            <!-- Example Product -->
+            <div class="product-item" data-id="1">
+                <img src="https://img.freepik.com/premium-photo/smartphone-balancing-with-pink-background_23-2150271746.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$10.00</p>
+                <button onclick="addToCart(1, 'Product 1', 10)">Add to Cart</button>
+            </div>
+            <div class="product-item" data-id="2">
+                <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSc8JHJ8ZIZrEnpoLnIKZ86M0Fc2rr1WiYElu_6CQC0JpznUeBY_JViFwiVYVi12tegmQN6YOhcR98mZckkKSD1aWM0ik1et9YeBabT08anPg4jBeNca0w8Mw" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$20.00</p>
+                <button onclick="addToCart(2, 'Product 2', 20)">Add to Cart</button>
+            </div>
+            <div class="product-item" data-id="3">
+                <img src="data:image/jpeg;base64,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" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>$30.00</p>
+                <button onclick="addToCart(3, 'Product 3', 30)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Shopping Cart</h3>
+            <ul id="cart-items"></ul>
+            <div class="total">
+                <strong>Total: $<span id="total-price">0</span></strong>
+            </div>
+            <button onclick="checkout()">Checkout</button>
+            <button onclick="toggleCart()">Close</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
